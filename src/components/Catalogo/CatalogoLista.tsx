@@ -2,16 +2,15 @@ import { useState } from "react";
 import type { PlanilhaMercosType } from "../../types/planilhaMercosType";
 import Header from "./Header";
 import CatalogoCard from "./CatalogoCard";
+import type { FilterType } from "../../App";
 
 type CatalogoListaProps = {
     data: PlanilhaMercosType[];
-    setDefaultFilter?: React.Dispatch<React.SetStateAction<{
-        saldo_maior: number;
-        ativo?: "True" | "False";
-    }>>
+    setDefaultFilter?: React.Dispatch<React.SetStateAction<FilterType>>
+    defaultFilter?: FilterType;
 }
 
-export function CatalogoLista({ data, setDefaultFilter }: CatalogoListaProps) {
+export function CatalogoLista({ data, setDefaultFilter, defaultFilter }: CatalogoListaProps) {
     const [itensSelecionados, setItensSelecionados] = useState<PlanilhaMercosType[]>([]);
 
     const toggleSelecao = (item: PlanilhaMercosType) => {
@@ -39,7 +38,7 @@ export function CatalogoLista({ data, setDefaultFilter }: CatalogoListaProps) {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <Header setDefaultFilter={setDefaultFilter} data={data} itensSelecionados={itensSelecionados} toggleSelecionarTodos={toggleSelecionarTodos} />
+            <Header setDefaultFilter={setDefaultFilter} defaultFilter={defaultFilter} data={data} itensSelecionados={itensSelecionados} toggleSelecionarTodos={toggleSelecionarTodos} />
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {data.map((item, index) => {
                     const selecionado = isItemSelecionado(item);

@@ -95,7 +95,6 @@ export const gerarPDFComProgresso = async (
     const imageHeight = itemHeight - textAreaHeight; // Mais espaço para imagem
 
     let currentPageNumber = 1; // Começar contagem das páginas
-    let itemsProcessed = 0;
 
     // Array para rastrear informações das categorias e suas páginas
     const categoryPageInfo: CategoryPageInfo[] = [];

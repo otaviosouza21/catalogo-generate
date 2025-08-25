@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as XLSX from "xlsx";
 
 export default function ExcelUploader({setData}: { setData: React.Dispatch<React.SetStateAction<any[]>> }) {
