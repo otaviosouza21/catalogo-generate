@@ -130,12 +130,6 @@ export const gerarPDFComProgressoGeral = async (
       pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(12);
       pdf.setFont("helvetica", "bold");
-      pdf.text(
-        `${produtosOrdenados.length} PRODUTOS`,
-        pageWidth / 2,
-        pageHeight * 0.755,
-        { align: "center" }
-      );
 
       pdf.setFontSize(10);
       pdf.setFont("helvetica", "normal");

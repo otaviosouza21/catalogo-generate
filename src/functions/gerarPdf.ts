@@ -152,12 +152,6 @@ export const gerarPDFComProgresso = async (
       pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(12);
       pdf.setFont("helvetica", "bold");
-      pdf.text(
-        `${itensSelecionados.length} PRODUTOS`,
-        pageWidth / 2,
-        pageHeight * 0.755,
-        { align: "center" }
-      );
 
       pdf.setFontSize(10);
       pdf.setFont("helvetica", "normal");
@@ -237,7 +231,6 @@ export const gerarPDFComProgresso = async (
         pdf.setTextColor(100, 116, 139);
         pdf.setFontSize(8);
         pdf.setFont("helvetica", "normal");
-        pdf.text(`${category.productCount} produtos`, x + 6, y + 9);
         
         // Número da página
         pdf.setTextColor(59, 130, 246);
