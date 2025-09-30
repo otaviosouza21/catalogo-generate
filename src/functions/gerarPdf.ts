@@ -268,6 +268,7 @@ export const gerarPDFComProgresso = async (
     };
 
     const createCategoryIntroPage = (categoryName: string, products: PlanilhaMercosType[]) => {
+      console.log(products)
       pdf.addPage();
       
       // Título da categoria centralizado no meio da página
@@ -391,7 +392,7 @@ export const gerarPDFComProgresso = async (
     // ETAPA 3: Processar cada categoria
     let globalItemIndex = 0;
     
-    for (const [categoryIndex, [categoryName, products]] of sortedCategories.entries()) {
+    for (const [_,[categoryName, products]] of sortedCategories.entries()) {
       updateProgress(globalItemIndex, `Criando introdução da categoria: ${categoryName}`);
       
       // Criar página de introdução da categoria
@@ -401,7 +402,7 @@ export const gerarPDFComProgresso = async (
       let productsPageNumber = 1;
       
       // Processar produtos da categoria
-      for (const [productIndex, item] of products.entries()) {
+      for (const [_, item] of products.entries()) {
         updateProgress(globalItemIndex, `Processando: ${item.nome}`);
 
         // Criar nova página de produtos quando necessário
